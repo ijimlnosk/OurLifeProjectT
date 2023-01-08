@@ -24,7 +24,7 @@ class UserProfileActivity : AppCompatActivity() {
         rvItem.layoutManager = layoutManager
         */
         binding = ActivityUserProfileBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        //setContentView(binding.root)
 
         binding.userRecyclerView.apply {
             //adapter = MyPostAdadpter. // MyPostAdapter의 build가 안붙음
