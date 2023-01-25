@@ -7,29 +7,55 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.daelim.ourlifeproject.`object`.ApiObject.signUpService
+import com.daelim.ourlifeproject.data.SignUpRequestBody
+import com.daelim.ourlifeproject.data.SignUpResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
+
+val TAG : String = "SingUpActivity"
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        var signUp : SignUpResponse?=null
+
+        val edtEmail = findViewById<EditText>(R.id.edt_SignEmail)
+        val edtName = findViewById<EditText>(R.id.edt_SignName)
+        val edtBirth = findViewById<EditText>(R.id.edt_SignBirth1)
         val edtPw = findViewById<EditText>(R.id.edt_SignPw)
         val edtPwOk = findViewById<EditText>(R.id.edt_SignPwOk)
-        val btngoToMainList = findViewById<Button>(R.id.btn_goToMainList)
+        val btnGoToMainList = findViewById<Button>(R.id.btn_goToMainList)
         //isRegularPW(edtPw.toString())
 
-        btngoToMainList.setOnClickListener {
-            if(edtPw.equals(null)||edtPwOk.equals(null)||edtPw.equals("최소 8자 이상 입력해 주세요.")||edtPwOk.equals("위 비밀번호와 같아야 합니다.")){
-                Toast.makeText(this@SignUpActivity,"비밀번호 또는 비밀번호 확인을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            }
-            else if(!edtPw.equals(edtPwOk)){
-                Toast.makeText(this@SignUpActivity,"비밀번호가 다릅니다.", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                val intent = Intent(this@SignUpActivity,MainActivity::class.java)
-                startActivity(intent)
-            }
+        btnGoToMainList.setOnClickListener {
+            Log.d(TAG, "가입 버튼 클릭")
+            signUpService.requestSignUp(SignUpRequestBody(edtBirth.toString(),
+                edtPw.toString(),
+                edtName.toString(),
+                edtBirth.toString()))
+                .enqueue(object : Callback<SignUpResponse>{
+                override fun onResponse(
+                    call: Call<SignUpResponse>,
+                    response: Response<SignUpResponse>
+                ) {
+                    signUp = response.body()
+                    Log.d("SignUp","message : " + signUp?.message)
+                    val intent = Intent(this@SignUpActivity,SignInActivity::class.java)
+
+                    startActivity(intent)
+
+                }
+
+                override fun onFailure(call: Call<SignUpResponse>, t: Throwable) {
+                    Log.d("SignUp",t.message.toString())
+                }
+
+            })
         }
 
     }

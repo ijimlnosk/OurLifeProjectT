@@ -3,17 +3,30 @@ package com.daelim.ourlifeproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.daelim.ourlifeproject.adapter.MyPostAdapter
 import com.daelim.ourlifeproject.data.PostImgData
 import com.daelim.ourlifeproject.data.UserData
+import com.daelim.ourlifeproject.databinding.ActivityMainBinding
 import com.daelim.ourlifeproject.databinding.ActivityUserProfileBinding
+import com.daelim.ourlifeproject.fragment.*
 import kotlinx.android.synthetic.main.activity_user_profile.*
 import kotlinx.android.synthetic.main.fragment_main_post.*
 
+private const val TAG_Home = "main_post_fragment"
+private const val TAG_Search = "search-fragment"
+private const val TAG_Chat = "chat_fragment"
+private const val TAG_MyProfile = "myProfile_fragment"
+private const val TAG_Setting = "setting_fragment"
+private const val TAG_UserProfile = "userprofile_fragment"
+
 class UserProfileActivity : AppCompatActivity() {
 
+    val TAG : String = "Userprofile"
     private val datas = mutableListOf<PostImgData>()
     lateinit var binding : ActivityUserProfileBinding
 
@@ -32,23 +45,7 @@ class UserProfileActivity : AppCompatActivity() {
             adapter = dataAdapter
         }
 
-        //setContentView(R.layout.activity_user_profile)
-        /*val rvItem = findViewById<RecyclerView>(R.id.user_recycler_view)
-        val layoutManager = LinearLayoutManager(this@UserProfileActivity)
-        val postAdadpter = MyPostAdadpter(this, datas)
-        rvItem.adapter = postAdadpter
-        rvItem.layoutManager = layoutManager
-        */
-        /*binding = ActivityUserProfileBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
 
-        binding.userRecyclerView.apply {
-            adapter = MyPostAdapter.build(postImgData) // MyPostAdapter의 build가 안붙음
-        }*/
     }
-    /*private fun buildItemList(listItem : List<ClipData.Item>){
-        val itemList = ArrayList<List<ClipData.Item>>()
 
-
-    }*/
 }

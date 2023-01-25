@@ -28,7 +28,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tx_Pw"
+            android:id="@+id/tv_Pw"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:fontFamily="@font/nanmgothic"
@@ -40,11 +40,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.335"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tx_Id"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Email"
             app:layout_constraintVertical_bias="0.074" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tx_Id"
+            android:id="@+id/tv_Email"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:fontFamily="@font/nanmgothic"
@@ -60,13 +60,13 @@
             app:layout_constraintVertical_bias="0.156" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/edt_Id"
+            android:id="@+id/edt_Email"
             android:layout_width="210dp"
             android:layout_height="40dp"
             android:fontFamily="@font/nanmgothic"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/tx_Id"
-            app:layout_constraintEnd_toEndOf="@+id/tx_Id" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_Email"
+            app:layout_constraintEnd_toEndOf="@+id/tv_Email" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edt_Pw"
@@ -76,8 +76,8 @@
             android:fontFamily="@font/nanmgothic"
             android:inputType="textPassword"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/tx_Pw"
-            app:layout_constraintStart_toStartOf="@+id/tx_Pw" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_Pw"
+            app:layout_constraintStart_toStartOf="@+id/tv_Pw" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_join"
@@ -89,8 +89,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.703"
-            app:layout_constraintStart_toEndOf="@+id/tx_Pw"
-            app:layout_constraintTop_toBottomOf="@+id/edt_Id"
+            app:layout_constraintStart_toEndOf="@+id/tv_Pw"
+            app:layout_constraintTop_toBottomOf="@+id/edt_Email"
             app:layout_constraintVertical_bias="0.035" />
 
         <Button
@@ -106,7 +106,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tx_Pw"
+            app:layout_constraintTop_toBottomOf="@id/tv_Pw"
             app:layout_constraintVertical_bias="0.142" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

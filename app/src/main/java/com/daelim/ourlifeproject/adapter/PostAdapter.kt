@@ -37,28 +37,6 @@ class PostAdapter(private val context: Context, data : MutableList<UserData>):
             Glide.with(itemView).load(item.imgProfile).into(imgProfile)
 
         }
-
-        /*private val txUerId = view.findViewById<TextView>(R.id.tvMainUserID)
-        private val txMainPost = view.findViewById<TextView>(R.id.tvMainPost)
-        private val txCreatedAt = view.findViewById<TextView>(R.id.tvMainCreatedAt)
-        private val imgPost = view.findViewById<ImageView>(R.id.imgMainPost)
-        private val imgProfile = view.findViewById<ImageView>(R.id.imgUserPro)
-
-        fun bind(item : UserData){
-            txUerId.text = item.userId
-            txMainPost.text = item.mainPost
-            txCreatedAt.text = item.createdAt
-            Glide.with(itemView).load(item.imgPost).into(imgPost)
-            Glide.with(itemView).load(item.imgProfile).into(imgProfile)
-
-            val pos = adapterPosition
-            if(pos != RecyclerView.NO_POSITION){
-                itemView.setOnClickListener {
-                    listener?.onItemClick(itemView,item,pos)
-                }
-            }
-
-        }*/
     }
 
 
